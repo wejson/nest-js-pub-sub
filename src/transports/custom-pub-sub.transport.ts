@@ -13,10 +13,6 @@ const noop = () => undefined;
  * @see https://cloud.google.com/pubsub/docs/overview
  * @see https://cloud.google.com/nodejs/docs/reference/pubsub/0.28.x/
  *
- * TODO: in order to open-source it for NestJs, we must use `this.loadPackage`
- * to load `@google-cloud/pubsub` dynamically instead of having it installed
- * in the dependenices of the project. Also, all types used from the package
- * should be duplicated into local types/interfaces.
  */
 export class ServerPubSub extends Server implements CustomTransportStrategy {
   private readonly pubSubClient: PubSub;

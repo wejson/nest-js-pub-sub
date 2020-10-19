@@ -9,6 +9,7 @@ export const PUB_SUB_CLIENT_PROVIDER = {
   provide: PUB_SUB_CLIENT_TOKEN,
   useFactory: (conf: ConfigService, log: LoggerService) => {
     const config: ClientConfig = {
+      // TODO: add credentials if env != dev for local docker use no credentials needed
       apiEndpoint: conf.get(PUB_SUB_ENDPOINT),
       projectId: conf.get(PUB_SUB_PROJECT_ID),
     };

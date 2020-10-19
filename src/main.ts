@@ -16,6 +16,7 @@ async function bootstrap() {
   const conf: ConfigService = app.get<ConfigService>(ConfigService);
   app.connectMicroservice({
     strategy: new ServerPubSub({
+      // TODO: add credentials if env != dev for local docker use no credentials needed
       clientConfig: {
         projectId: conf.get(PUB_SUB_PROJECT_ID),
         apiEndpoint: conf.get(PUB_SUB_ENDPOINT),
