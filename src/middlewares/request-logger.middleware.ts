@@ -1,8 +1,8 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
-import { Request, Response } from 'express';
-import * as uuid from 'uuid/v1';
-import { LoggerService } from '../services/logger.service';
-import { Logger } from 'winston';
+import {Injectable, NestMiddleware} from '@nestjs/common';
+import {Request, Response} from 'express';
+import {v1 as uuid} from 'uuid';
+import {LoggerService} from '../services/logger.service';
+import {Logger} from 'winston';
 
 @Injectable()
 export class RequestLoggerMiddleware implements NestMiddleware {
@@ -13,10 +13,10 @@ export class RequestLoggerMiddleware implements NestMiddleware {
   }
 
   use(req: Request, res: Response, next: () => void) {
-    const { originalUrl, body, query } = req;
+    const {originalUrl, body, query} = req;
     req.contextId = uuid();
     if (originalUrl !== '/health') {
-      this.logger.verbose(originalUrl, { body, query });
+      this.logger.verbose(originalUrl, {body, query});
     }
     return next();
   }

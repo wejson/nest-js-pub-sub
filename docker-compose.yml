@@ -10,7 +10,7 @@ services:
     volumes:
       - ./src:/app/src:z
     env_file:
-      - .env.example
+      - .env.local
     depends_on:
       - pubsub-service
     networks:
